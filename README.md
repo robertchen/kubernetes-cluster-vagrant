@@ -32,3 +32,6 @@ kube-scheduler-kcluster-calico            1/1     Running   0          6h32m   1
 
 # reference:
 https://gist.github.com/lizrice/69d3b28979391287176b3b7155a327b9
+
+https://www.objectif-libre.com/en/blog/2018/07/05/k8s-network-solutions-comparison/
+
