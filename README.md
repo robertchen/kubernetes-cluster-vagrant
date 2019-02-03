@@ -30,6 +30,10 @@ kube-proxy-qnzvc                          1/1     Running   0          73m     1
 kube-scheduler-kcluster-calico            1/1     Running   0          6h32m   10.0.2.15     kcluster-calico    <none>           <none>
 ```
 
+5. issues and solutions
+* the vms in virtualbox on MAC (NAT) always has the 10.0.2.15 and kubernetes set this as the api listening address, solution is set and IP on vagrant provisioning script and set apiserver-advertise-address to this IP address.
+
+
 # reference:
 https://gist.github.com/lizrice/69d3b28979391287176b3b7155a327b9
 
