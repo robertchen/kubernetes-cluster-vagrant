@@ -11,6 +11,8 @@ kubectl create -f ./calico.yaml
 vagrant up
 
 4. output:
+
+
 robert@imac:~/src/vagrant-one-node-cluster-calico$ k get nodes
 NAME               STATUS   ROLES    AGE     VERSION
 kcluster-calico    Ready    master   6h33m   v1.13.3
