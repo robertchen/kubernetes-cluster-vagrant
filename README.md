@@ -33,7 +33,8 @@ kube-scheduler-kcluster-calico            1/1     Running   0          6h32m   1
 5. issues and solutions
 * the vms in virtualbox on MAC (NAT) always has the 10.0.2.15 and kubernetes set this as the api listening address, solution is set and IP on vagrant provisioning script and set apiserver-advertise-address to this IP address.
 We defined the master as 172.17.8.211, second node as 172.17.8.212.
-
+![Alt text](kubernetes-cluster-vagrant/images/virtualbox-networking.png?raw=true "Virtualbox networking settings")
+      
 
 
 # reference:
