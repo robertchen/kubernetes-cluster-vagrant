@@ -29,10 +29,10 @@ NODENAME=$(hostname -s)
 #kubeadm join 172.17.8.211:6443 --token ppo6yg.q2zooup6udo0i4aj --discovery-token-ca-cert-hash sha256:2159d9229c6ff173406614e835733f21000a687b0dc24c309698d5fb4d1d73e7
 kubeadm join 172.17.8.211:6443 --token tkbdaa.qnksoj2re6mm0ef4 --discovery-token-ca-cert-hash sha256:01564fc19c5a4586cd6754b75d312131cd513c678544a2658b8d86694e1efee3
 # Set up admin creds for the vagrant user
-echo Copying credentials to /home/vagrant...
-sudo --user=vagrant mkdir -p /home/vagrant/.kube
-cp -i /etc/kubernetes/admin.conf /home/vagrant/.kube/config
-chown $(id -u vagrant):$(id -g vagrant) /home/vagrant/.kube/config
+#echo Copying credentials to /home/vagrant...
+#sudo --user=vagrant mkdir -p /home/vagrant/.kube
+#cp -i /etc/kubernetes/admin.conf /home/vagrant/.kube/config
+#chown $(id -u vagrant):$(id -g vagrant) /home/vagrant/.kube/config
 SCRIPT
 
 Vagrant.configure("2") do |config|
