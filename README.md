@@ -12,7 +12,9 @@ vagrant up
 
 4. output:
 robert@imac:~/src/vagrant-one-node-cluster-calico$ k get nodes
+
 NAME               STATUS   ROLES    AGE     VERSION
+
 kcluster-calico    Ready    master   6h33m   v1.13.3
 kcluster-calico2   Ready    <none>   73m     v1.13.3
 robert@imac:~/src/vagrant-one-node-cluster-calico$ kubectl get pods -n kube-system -owide
