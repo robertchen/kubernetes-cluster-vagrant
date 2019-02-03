@@ -12,11 +12,11 @@ vagrant up
 
 4. output
 ```
-robert@imac:~/src/vagrant-one-node-cluster-calico$ k get nodes
+robert@imac:~/src/vagrant-cluster-calico$ k get nodes
 NAME               STATUS   ROLES    AGE     VERSION
 kcluster-calico    Ready    master   6h33m   v1.13.3
 kcluster-calico2   Ready    <none>   73m     v1.13.3
-robert@imac:~/src/vagrant-one-node-cluster-calico$ kubectl get pods -n kube-system -owide
+robert@imac:~/src/vagrant-cluster-calico$ kubectl get pods -n kube-system -owide
 NAME                                      READY   STATUS    RESTARTS   AGE     IP            NODE               NOMINATED NODE   READINESS GATES
 calico-node-28942                         2/2     Running   0          59m     10.0.2.15     kcluster-calico    <none>           <none>
 calico-node-m78p2                         2/2     Running   0          59m     10.0.2.15     kcluster-calico2   <none>           <none>
