@@ -33,6 +33,9 @@ kube-scheduler-kcluster-calico            1/1     Running   0          6h32m   1
 5. issues and solutions
 * the vms in virtualbox on MAC (NAT) always has the 10.0.2.15 and kubernetes set this as the api listening address, solution is to set an IP for the node and also set apiserver-advertise-address to this IP address.
 We defined the master as 172.17.8.211, second node as 172.17.8.212.
+
+![Alt text](images/virtualbox-networking.png "Virtualbox networking settings")
+      
 * If kubectl exec cannot connect to the pod, this is because the nodes is running on 10.0.2.15 (virtualbox NAT). 
 ```robert@imac:~/src/kubernetes-learning/vagrant-one-node-cluster-calico$  kubectl exec -it nginx-7db75b8b78-47j9d -- bash 
 error: unable to upgrade connection: pod does not exist
@@ -47,10 +50,6 @@ solution is adding these to Vagrantfile:
 systemctl daemon-reload
 systemctl restart kubelet
 ```
-
-![Alt text](images/virtualbox-networking.png "Virtualbox networking settings")
-      
-
 
 # reference:
 https://gist.github.com/lizrice/69d3b28979391287176b3b7155a327b9
