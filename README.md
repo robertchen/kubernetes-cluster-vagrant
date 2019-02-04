@@ -1,7 +1,7 @@
 # kubernetes-cluster-vagrant
 
 Minikube kubernetes is not cluster and cannot dev/testing as a production cluster. This creates a kubernetes cluster using vagrant. Nodes are based on Ubuntu 18.04, kubernetes version is latest.
-1. first running Copy Vagrant-master to a folder and running:
+1. first Copy Vagrant-master to a folder and run:
 vagrant up
 2. create calico networking stuffs:
 kubectl create -f ./rbac-kdd.yaml
