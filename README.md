@@ -38,10 +38,10 @@ We defined the master as 172.17.8.211, second node as 172.17.8.212.
       
 * If kubectl exec cannot connect to the pod, this is because the nodes is running on 10.0.2.15 (virtualbox NAT). 
 ```
-robert@imac:~/src/kubernetes-learning/vagrant-one-node-cluster-calico$  kubectl exec -it nginx-7db75b8b78-47j9d -- bash 
+robert@imac:~/src/kubernetes-learning/vagrant-cluster-calico$  kubectl exec -it nginx-7db75b8b78-47j9d -- bash 
 error: unable to upgrade connection: pod does not exist
 
-robert@imac:~/src/kubernetes-learning/vagrant-one-node-cluster-calico$ kubectl get nodes -o wide
+robert@imac:~/src/kubernetes-learning/vagrant-cluster-calico$ kubectl get nodes -o wide
 NAME               STATUS   ROLES    AGE     VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME
 kcluster-calico    Ready    master   7h24m   v1.13.3   10.0.2.15     <none>        Ubuntu 18.04.1 LTS   4.15.0-29-generic   docker://18.6.0
 kcluster-calico2   Ready    <none>   124m    v1.13.3   10.0.2.15     <none>        Ubuntu 18.04.1 LTS   4.15.0-29-generic   docker://18.6.0
