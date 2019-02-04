@@ -37,7 +37,8 @@ We defined the master as 172.17.8.211, second node as 172.17.8.212.
 ![Alt text](images/virtualbox-networking.png "Virtualbox networking settings")
       
 * If kubectl exec cannot connect to the pod, this is because the nodes is running on 10.0.2.15 (virtualbox NAT). 
-```robert@imac:~/src/kubernetes-learning/vagrant-one-node-cluster-calico$  kubectl exec -it nginx-7db75b8b78-47j9d -- bash 
+```
+robert@imac:~/src/kubernetes-learning/vagrant-one-node-cluster-calico$  kubectl exec -it nginx-7db75b8b78-47j9d -- bash 
 error: unable to upgrade connection: pod does not exist
 
 robert@imac:~/src/kubernetes-learning/vagrant-one-node-cluster-calico$ kubectl get nodes -o wide
