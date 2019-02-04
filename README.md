@@ -45,7 +45,8 @@ kcluster-calico2   Ready    <none>   124m    v1.13.3   10.0.2.15     <none>     
 solution is adding these to Vagrantfile:
 ```sed -i "/KUBELET_EXTRA_ARGS=/c\KUBELET_EXTRA_ARGS=--node-ip=$IPADDR" /etc/default/kubelet
 systemctl daemon-reload
-systemctl restart kubelet```
+systemctl restart kubelet
+```
 
 ![Alt text](images/virtualbox-networking.png "Virtualbox networking settings")
       
