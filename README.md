@@ -1,6 +1,6 @@
 # kubernetes-cluster-vagrant
 
-Minikube kubernetes is not cluster and cannot dev/testing as a production cluster. This creates a kubernetes cluster using vagrant. Nodes are based on Ubuntu 18.04, kubernetes version is latest.
+Minikube kubernetes is not cluster and cannot dev/testing as a production cluster. This creates a kubernetes cluster using vagrant on IMAC moJave 10.14.3. Nodes are based on Ubuntu 18.04, kubernetes version is latest.
 1. run:
 vagrant up
 
@@ -33,16 +33,8 @@ the master ip is 172.17.8.211, second node is 172.17.8.212. Virtualbox networkin
 
 ![Alt text](images/virtualbox-networking.png "Virtualbox networking settings")
       
-* If kubectl exec cannot connect to the pod, this is because the nodes is running on 10.0.2.15 (virtualbox NAT). The kublet should be changed to be binded to eth1, the node ip.
-```
-robert@imac:~/src/kubernetes-learning/vagrant-cluster-calico$  kubectl exec -it nginx-7db75b8b78-47j9d -- bash 
-error: unable to upgrade connection: pod does not exist
+* If kubectl exec cannot connect to the pod, this is because the nodes is running on 10.0.2.15 (virtualbox NAT). The kublet should be changed to be binded to enp0s8, the node ip.
 
-robert@imac:~/src/kubernetes-learning/vagrant-cluster-calico$ kubectl get nodes -o wide
-NAME               STATUS   ROLES    AGE     VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME
-kcluster-calico    Ready    master   7h24m   v1.13.3   10.0.2.15     <none>        Ubuntu 18.04.1 LTS   4.15.0-29-generic   docker://18.6.0
-kcluster-calico2   Ready    <none>   124m    v1.13.3   10.0.2.15     <none>        Ubuntu 18.04.1 LTS   4.15.0-29-generic   docker://18.6.0
-```
 solution is adding these to Vagrantfile:
 ```
 sed -i "/KUBELET_EXTRA_ARGS=/c\KUBELET_EXTRA_ARGS=--node-ip=$IPADDR" /etc/default/kubelet
