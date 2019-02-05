@@ -13,7 +13,7 @@ $configureBox = <<-SHELL
   add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
   apt-get update
   #apt-get install -y docker-ce=$(apt-cache madison docker-ce | grep 17.03 | head -1 | awk '{print $3}')
-  apt-get update && apt-get install -y apt-transport-https docker-ce=18.06.0~ce~3-0~ubuntu
+  apt-get install -y apt-transport-https docker-ce=18.06.0~ce~3-0~ubuntu
   apt-mark hold docker-ce
   # add vagrant to docker group
   usermod -aG docker vagrant
