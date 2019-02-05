@@ -36,7 +36,7 @@ the master ip is 172.17.8.211, second node is 172.17.8.212. Virtualbox networkin
 
 ![Alt text](images/virtualbox-networking.png "Virtualbox networking settings")
       
-* If kubectl exec cannot connect to the pod, this is because the nodes is running on 10.0.2.15 (virtualbox NAT). 
+* If kubectl exec cannot connect to the pod, this is because the nodes is running on 10.0.2.15 (virtualbox NAT). The kublet should be changed to be binded to eth1, the node ip.
 ```
 robert@imac:~/src/kubernetes-learning/vagrant-cluster-calico$  kubectl exec -it nginx-7db75b8b78-47j9d -- bash 
 error: unable to upgrade connection: pod does not exist
@@ -47,7 +47,8 @@ kcluster-calico    Ready    master   7h24m   v1.13.3   10.0.2.15     <none>     
 kcluster-calico2   Ready    <none>   124m    v1.13.3   10.0.2.15     <none>        Ubuntu 18.04.1 LTS   4.15.0-29-generic   docker://18.6.0
 ```
 solution is adding these to Vagrantfile:
-```sed -i "/KUBELET_EXTRA_ARGS=/c\KUBELET_EXTRA_ARGS=--node-ip=$IPADDR" /etc/default/kubelet
+```
+sed -i "/KUBELET_EXTRA_ARGS=/c\KUBELET_EXTRA_ARGS=--node-ip=$IPADDR" /etc/default/kubelet
 systemctl daemon-reload
 systemctl restart kubelet
 ```
