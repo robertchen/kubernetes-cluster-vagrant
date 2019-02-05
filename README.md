@@ -1,6 +1,6 @@
 # kubernetes-cluster-vagrant
 
-Minikube kubernetes is not cluster and cannot dev/testing as a production cluster. This creates a kubernetes cluster using vagrant. Nodes are based on Ubuntu 18.04, kubernetes version is latest.
+Minikube kubernetes is not cluster and cannot dev/testing as a production cluster. This creates a kubernetes cluster using vagrant on IMAC moJave 10.14.3. Nodes are based on Ubuntu 18.04, kubernetes version is latest.
 1. run:
 vagrant up
 
