@@ -29,7 +29,7 @@ $configureBox = <<-SHELL
   #install kubernetes
   curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
   cat <<EOF >/etc/apt/sources.list.d/kubernetes.list
-deb https://apt.kubernetes.io/ kubernetes-xenial main
+  deb https://apt.kubernetes.io/ kubernetes-xenial main
 EOF
   # install kubeadm、kubelet、kubectl
   apt-get update
@@ -39,7 +39,8 @@ EOF
   # get enp0s8 ip addr, eth0 is 10.0.2.15 for NAT
   IPADDR=$(ip a show enp0s8 | grep inet | grep -v inet6 | awk '{print $2}' | cut -f1 -d/)
   # bind kubelet to the private IP addr
-  sed -i "/KUBELET_EXTRA_ARGS=/c\KUBELET_EXTRA_ARGS=--node-ip=$IPADDR" /etc/default/kubelet
+  #sed -i "/KUBELET_EXTRA_ARGS=/c\KUBELET_EXTRA_ARGS=--node-ip=$IPADDR" /etc/default/kubelet
+  echo "KUBELET_EXTRA_ARGS=--node-ip=$IPADDR" > /etc/default/kubelet
   # kubelet reload
   systemctl daemon-reload
   systemctl restart kubelet
