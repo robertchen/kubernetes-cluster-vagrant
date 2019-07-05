@@ -13,7 +13,7 @@ $configureBox = <<-SHELL
   add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
   apt-get update
   #apt-get install -y docker-ce=$(apt-cache madison docker-ce | grep 17.03 | head -1 | awk '{print $3}')
-  apt-get install -y apt-transport-https docker-ce=18.06.0~ce~3-0~ubuntu
+  apt-get install -y apt-transport-https docker-ce=5:18.09.7~3-0~ubuntu-bionic
   apt-mark hold docker-ce
   # add vagrant to docker group
   usermod -aG docker vagrant
@@ -70,9 +70,13 @@ $configureMaster = <<-SHELL
   #export KUBECONFIG=/etc/kubernetes/admin.conf
   #kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/bc79dd1505b0c8681ece4de4c0d86c5cd2643275/Documentation/kube-flannel.yml
   # Calico
-  export KUBECONFIG=/etc/kubernetes/admin.conf
-  kubectl apply -f https://docs.projectcalico.org/v3.3/getting-started/kubernetes/installation/hosted/rbac-kdd.yaml
-  kubectl apply -f https://docs.projectcalico.org/v3.3/getting-started/kubernetes/installation/hosted/kubernetes-datastore/calico-networking/1.7/calico.yaml
+#  export KUBECONFIG=/etc/kubernetes/admin.conf
+#  kubectl apply -f https://docs.projectcalico.org/v3.3/getting-started/kubernetes/installation/hosted/rbac-kdd.yaml
+#  kubectl apply -f https://docs.projectcalico.org/v3.3/getting-started/kubernetes/installation/hosted/kubernetes-datastore/calico-networking/1.7/calico.yaml
+
+#weavenet
+   export KUBECONFIG=/etc/kubernetes/admin.conf
+   kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
 
   # save kubectl join command
   kubeadm token create --print-join-command > /etc/kubeadm_join_cmd.sh
